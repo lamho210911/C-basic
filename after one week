@@ -1,0 +1,171 @@
+#include <iostream>
+#include <windows.h>
+#include <string>
+
+using namespace std;
+
+// ================================
+// HIEN THI THONG TIN CA NHAN
+// ================================
+void personalInfo() {
+    string name;
+    int age;
+
+    cout << "\n===== THONG TIN CA NHAN =====\n";
+
+    cout << "Nhap ten: ";
+    cin >> name;
+
+    cout << "Nhap tuoi: ";
+    cin >> age;
+
+    cout << "\nTen: " << name << endl;
+    cout << "Tuoi: " << age << endl;
+}
+
+// ================================
+// KIEM TRA SO DUONG / AM / 0
+// ================================
+void checkNumber() {
+    int n;
+
+    cout << "\n===== KIEM TRA SO =====\n";
+    cout << "Nhap n: ";
+    cin >> n;
+
+    if (n > 0) {
+        cout << "n la so duong\n";
+    }
+    else if (n < 0) {
+        cout << "n la so am\n";
+    }
+    else {
+        cout << "n bang 0\n";
+    }
+}
+
+// ================================
+// TINH TONG 1 -> N
+// ================================
+int sum(int n) {
+    int total = 0;
+
+    for (int i = 1; i <= n; i++) {
+        total += i;
+    }
+
+    return total;
+}
+
+// ================================
+// IN CAC SO TU 1 -> N
+// ================================
+void printNumbers() {
+    int n;
+
+    cout << "\n===== IN DAY SO =====\n";
+    cout << "Nhap n: ";
+    cin >> n;
+
+    int i = 1;
+
+    while (i <= n) {
+        cout << i << endl;
+        i++;
+    }
+}
+
+// ================================
+// TINH BINH PHUONG
+// ================================
+int square(int n) {
+    return n * n;
+}
+
+// ================================
+// TIM SO LON HON
+// ================================
+int maxNumber(int a, int b) {
+    if (a > b) {
+        return a;
+    }
+    else {
+        return b;
+    }
+}
+
+// ================================
+// MAIN
+// ================================
+int main() {
+    SetConsoleOutputCP(CP_UTF8);
+
+    int choice;
+
+    while (true) {
+
+        cout << "\n";
+        cout << "==============================\n";
+        cout << "       C++ PRACTICE TOOL\n";
+        cout << "==============================\n";
+        cout << "1. Thong tin ca nhan\n";
+        cout << "2. Kiem tra so\n";
+        cout << "3. Tinh tong 1 -> n\n";
+        cout << "4. In day so 1 -> n\n";
+        cout << "5. Tinh binh phuong\n";
+        cout << "6. Tim so lon hon\n";
+        cout << "0. Thoat\n";
+        cout << "==============================\n";
+
+        cout << "Nhap lua chon: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            personalInfo();
+        }
+        else if (choice == 2) {
+            checkNumber();
+        }
+        else if (choice == 3) {
+            int n;
+
+            cout << "\nNhap n: ";
+            cin >> n;
+
+            cout << "Tong = " << sum(n) << endl;
+        }
+        else if (choice == 4) {
+            printNumbers();
+        }
+        else if (choice == 5) {
+            int n;
+
+            cout << "\nNhap n: ";
+            cin >> n;
+
+            cout << "Binh phuong = " << square(n) << endl;
+        }
+        else if (choice == 6) {
+            int a, b;
+
+            cout << "\nNhap a: ";
+            cin >> a;
+
+            cout << "Nhap b: ";
+            cin >> b;
+
+            cout << "So lon hon = "
+                 << maxNumber(a, b)
+                 << endl;
+        }
+        else if (choice == 0) {
+            cout << "\nCam on ban da su dung chuong trinh!\n";
+            break;
+        }
+        else {
+            cout << "\nLua chon khong hop le!\n";
+        }
+    }
+
+    return 0;
+}
